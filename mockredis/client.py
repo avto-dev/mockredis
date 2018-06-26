@@ -413,6 +413,8 @@ class MockRedis(object):
                 raise RedisError('MSET requires **kwargs or a single dict arg')
             mapping = args[0]
         else:
+            if not kwargs:
+                raise RedisError("wrong number of arguments for 'mset' command")
             mapping = kwargs
         for key, value in mapping.items():
             self.set(key, value)
