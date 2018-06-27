@@ -5,7 +5,6 @@ from nose.tools import eq_, ok_
 from mockredis.client import get_total_milliseconds
 from mockredis.tests.fixtures import (
     raises_response_error,
-    assert_raises_redis_error,
     setup,
     teardown,
 )
@@ -210,9 +209,9 @@ class TestRedisString(object):
         ok_(self.redis.mset(**{"key3": "world", "key2": "there"}))
         eq_([b"hello", b"there", b"world"], self.redis.mget("key1", "key2", "key3"))
 
+    @raises_response_error
     def test_mset_empty(self):
-        with assert_raises_redis_error():
-            self.redis.mset(**{})
+        self.redis.mset(**{})
 
     def test_msetnx(self):
         ok_(self.redis.msetnx({"key1": "hello", "key2": "there"}))
