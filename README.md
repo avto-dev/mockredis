@@ -1,5 +1,8 @@
 # Mock for the redis-py client library
 
+![Build Status](https://travis-ci.org/avto-dev/mockredis.svg?branch=master)
+![License](https://img.shields.io/github/license/avto-dev/mockredis?longCache=true)
+
 Supports writing tests for code using the [redis-py][redis-py] library
 without requiring a [redis-server][redis] install.
 
@@ -9,7 +12,9 @@ without requiring a [redis-server][redis] install.
 
 Use pip:
 
-    pip install mockredispy
+```bash
+$ pip install mockredispy
+```
 
 ## Usage
 
